@@ -2,17 +2,22 @@
 
     class CalculationService
     {
-        public static double Max(double x, double y)
+        //metodo para mostrar o maior numero entre duas variaveis
+        public static void ShowMax(double x, double y)
         {
-            return ( x > y ) ? x : y;
+            //fazendo um teste com o operador ternario
+            double max = (x > y)  ? x : y;
+            //mostrando o valor maximo na tela
+            System.Console.WriteLine(max);
         }
-        public static double Sum(double x, double y)
+        //metodo para mostrar a soma de duas variaveis
+        public static void ShowSum(double x, double y)
         {
-            return x + y;
+            //variavel que faz a soma
+            double sum = x + y;
+            //mostrando o valor da soma
+            System.Console.WriteLine(sum);
         }
-        public static double Square(double x)
-        {
-            return x*x;
-        }
+
     }
 }

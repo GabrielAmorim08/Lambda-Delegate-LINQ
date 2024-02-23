@@ -25,15 +25,17 @@ List<Product> products = new List<Product>{
 };
 
 System.Console.WriteLine("ID | Name | Price | Type | Category");
-//Consultas utilizando o LINQ com função LAMBDA
-var result1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
+//Utilizando LINQ com notação de SQL para consultas
+var result1 = from p in products where p.Category.Tier == 1 && p.Price <900 select p;
 Print("TIER 1 AND PRICE < 900: ", result1);
 
-var result2 = products.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+var result2 = from p in products where p.Category.Name == "Tools" select p.Name;
 Print("NAMES OF PRODUCTS FROM TOOLS: ", result2);
-var result3 = products.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name});
+
+var result3 = from p in products where p.Name[0] == 'C' select new {p.Name,p.Price, CategoryName = p.Category.Name};
 Print("NAMES STARTED WITH 'C' AND ANONYMOUS OBJECT: ",result3);
 
+//Consultas utilizando o LINQ com função LAMBDA
 var result4 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
 Print("TIER 1 ORDER BY PRICE THEN BY NAME", result4);
 

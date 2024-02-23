@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 class Program
 {
     public static void Main(string[] args)
@@ -9,7 +8,7 @@ class Program
 
         //define the query expression
         var result = numbers.Where(x => x%2 == 0).Select(x => x*10);
-
+        
         //Execute the query
         foreach (int x in result)
         {
